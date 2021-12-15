@@ -1,0 +1,15 @@
+## Configuration file for MSSM Scans
+## Directory to micrOmegas library
+1. ../lib/micromegas_5.2.6/MSSM
+## Directory to SoftSUSY library
+2. ../lib/softsusy-4.1.10
+## Parameter space to scan (either "cMSSM" or "pMSSM")
+3. cMSSM
+## Directory where resulting dataset should be output
+4. /pub/jhollin1/dm_data/cmssm_rand_new_start
+## Directory for writing temporary files
+5. ../scratch
+## Number of threads to use
+6. 8
+## Number of samples to generate (per 1 run of the program)
+7. 10000

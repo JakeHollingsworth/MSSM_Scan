@@ -1,7 +1,7 @@
 # MSSM_Scan
 
 ## Overview
-This program computes over weak scale properties of randomly sampled cMSSM or pMSSM models. It was written during the publication of 
+This program computes weak scale properties of randomly sampled cMSSM or pMSSM models. It was written during the publication of 
 https://arxiv.org/abs/2103.06957 and, while not originally intended for use beyond this paper, has been uploaded here in case others may find it of use. As the code was never intended for use beyond this application, the quality of the code leaves much to be desired.
 
 The code is written to be run multiple times in parallel on a supercomputer. A sample slurm script submit_rand.sh is provided to show how one may submit a job array for forming large datasets.

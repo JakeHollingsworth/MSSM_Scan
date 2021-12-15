@@ -6,10 +6,6 @@
 
 /*
 Randomly sample mssm parameter space and calculate Higgs masses.
-
-TO DO:
-1. Fix the seeding issues, it is possible that the initial seed is the same due to being distributed acrossed different nodes.
-Last Updated: 10/24/2017
 */
 
 vector<string> readConfig()
@@ -22,7 +18,7 @@ vector<string> readConfig()
 	{
 		cout << "The parent directory must contain a file config.txt." << endl;
 		exit(1);
-	}	
+	}
 	string line;
 	while(getline(configFile, line))
 		if(line.length()!= 0 && line[0] != '#')
@@ -33,22 +29,8 @@ vector<string> readConfig()
 			boost::split(split_content, line, boost::is_any_of(" "))[1];
 			content = split_content[1];
 			boost::trim(content);
-			if(indicator == "1.")
-				parameters.push_back(content);
-			if(indicator == "2.")
-				parameters.push_back(content);
-			if(indicator == "3.")
-				parameters.push_back(content);
-			if(indicator == "4.")
-				parameters.push_back(content);
-			if(indicator == "5.")
-				parameters.push_back(content);
-			if(indicator == "6.")
-				parameters.push_back(content);
-          	  	if(indicator == "7.")
-				parameters.push_back(content);
-            		if(indicator == "8.")
-				parameters.push_back(content);
+			if(indicator != "##")
+                                parameters.push_back(content);
 		}
 	configFile.close();
 	return parameters;
@@ -60,12 +42,11 @@ int main(int argc, char* argv[])
 	vector<string> parameters = readConfig();
 	string micrOmegasDir = parameters[0];
         string softSUSYDir = parameters[1];
-        string flexibleEFTHiggsDir = parameters[2];
-	string param_space = parameters[3];
-	string finalOutputDir = parameters[4];
-	string temporaryDir_root = parameters[5];
-	int number_threads = parameters[6];
-	int num_to_generate = parameters[7];
+	string param_space = parameters[2];
+	string finalOutputDir = parameters[3];
+	string temporaryDir_root = parameters[4];
+	int number_threads = stoi(parameters[5]);
+	int num_to_generate = stoi(parameters[6]);
         // Get the batch ID number to ensure unique seeds
         int batchNum;
         if(argc < 1)
